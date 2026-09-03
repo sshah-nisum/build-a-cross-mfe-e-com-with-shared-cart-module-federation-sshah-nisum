@@ -1,4 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/feVVTjSF)
+
 # Assignment 2 — MFE Assignment: Cross-MFE E-Commerce App with Shared Cart State
 
 ## 📌 Overview
@@ -218,7 +219,7 @@ Wireless Headphones
 $99
 Quantity: 2
 
-Laptop Stand
+Wireless Mouse
 $49
 Quantity: 1
 
@@ -276,10 +277,7 @@ The cart should remain available even after refreshing the browser.
 ### Example
 
 ```javascript
-localStorage.setItem(
-  "cart",
-  JSON.stringify(cart)
-);
+localStorage.setItem("cart", JSON.stringify(cart));
 ```
 
 ### Explain
@@ -311,10 +309,7 @@ checkoutStep
 For example:
 
 ```javascript
-sessionStorage.setItem(
-  "recentProduct",
-  JSON.stringify(product)
-);
+sessionStorage.setItem("recentProduct", JSON.stringify(product));
 ```
 
 ### Demonstrate
@@ -447,18 +442,15 @@ Example:
 ```javascript
 window.dispatchEvent(
   new CustomEvent("cart:item-added", {
-    detail: product
-  })
+    detail: product,
+  }),
 );
 ```
 
 The Cart MFE should listen for this event:
 
 ```javascript
-window.addEventListener(
-  "cart:item-added",
-  handleAddToCart
-);
+window.addEventListener("cart:item-added", handleAddToCart);
 ```
 
 ### Demonstrate
@@ -584,14 +576,14 @@ You must document your Module Federation configuration and explain why these dep
 
 Your application must demonstrate all six mechanisms.
 
-| Mechanism | Required Demonstration |
-|---|---|
-| localStorage | Persistent cart/session data |
-| sessionStorage | Temporary browsing/session data |
-| Cookies | Shared preference/session information |
-| Query Parameters | Product/navigation information |
-| Custom Events | Add-to-cart communication |
-| Shared Redux | Centralized cross-MFE cart state |
+| Mechanism        | Required Demonstration                |
+| ---------------- | ------------------------------------- |
+| localStorage     | Persistent cart/session data          |
+| sessionStorage   | Temporary browsing/session data       |
+| Cookies          | Shared preference/session information |
+| Query Parameters | Product/navigation information        |
+| Custom Events    | Add-to-cart communication             |
+| Shared Redux     | Centralized cross-MFE cart state      |
 
 ---
 
@@ -607,14 +599,14 @@ Compare all six mechanisms.
 
 Your comparison should include:
 
-| Mechanism | Persistence | Communication | Coupling | Best Use Case | Limitations |
-|---|---|---|---|---|---|
-| localStorage | Long-term | Indirect | Low | Persistent client data | Browser-only |
-| sessionStorage | Session | Indirect | Low | Temporary session data | Limited lifetime |
-| Cookies | Configurable | Browser/Server | Low | Small session/preferences | Size/security constraints |
-| Query Params | URL-based | Navigation | Low | Shareable navigation state | Visible in URL |
-| Custom Events | Runtime | Direct events | Low | MFE communication | Requires active listeners |
-| Shared Redux | Runtime | Direct state | Higher | Complex shared application state | Stronger coupling |
+| Mechanism      | Persistence  | Communication  | Coupling | Best Use Case                    | Limitations               |
+| -------------- | ------------ | -------------- | -------- | -------------------------------- | ------------------------- |
+| localStorage   | Long-term    | Indirect       | Low      | Persistent client data           | Browser-only              |
+| sessionStorage | Session      | Indirect       | Low      | Temporary session data           | Limited lifetime          |
+| Cookies        | Configurable | Browser/Server | Low      | Small session/preferences        | Size/security constraints |
+| Query Params   | URL-based    | Navigation     | Low      | Shareable navigation state       | Visible in URL            |
+| Custom Events  | Runtime      | Direct events  | Low      | MFE communication                | Requires active listeners |
+| Shared Redux   | Runtime      | Direct state   | Higher   | Complex shared application state | Stronger coupling         |
 
 > The table above is a starting point. You must expand the explanation in your own words based on your implementation.
 
@@ -980,21 +972,21 @@ independently and configure the Host to consume the remotely deployed MFEs.
 
 # 📊 Evaluation Criteria
 
-| Category | Marks |
-|---|---:|
-| Micro Frontend Architecture | 10 |
-| Module Federation Configuration | 15 |
-| Catalog MFE | 10 |
-| Cart MFE | 10 |
-| localStorage Implementation | 5 |
-| sessionStorage Implementation | 5 |
-| Cookies Implementation | 5 |
-| Query Parameters Implementation | 5 |
-| Custom Events Implementation | 10 |
-| Shared Redux State | 15 |
-| Testing | 5 |
-| Documentation & Justification | 5 |
-| **Total** | **100** |
+| Category                        |   Marks |
+| ------------------------------- | ------: |
+| Micro Frontend Architecture     |      10 |
+| Module Federation Configuration |      15 |
+| Catalog MFE                     |      10 |
+| Cart MFE                        |      10 |
+| localStorage Implementation     |       5 |
+| sessionStorage Implementation   |       5 |
+| Cookies Implementation          |       5 |
+| Query Parameters Implementation |       5 |
+| Custom Events Implementation    |      10 |
+| Shared Redux State              |      15 |
+| Testing                         |       5 |
+| Documentation & Justification   |       5 |
+| **Total**                       | **100** |
 
 ---
 
@@ -1079,11 +1071,12 @@ Please submit your GitHub repo link by: 25 - August - 2026
 ---
 
 ## 💡 Tips
+
 - Start all remote apps before running the shell.
 - Keep each remote app small and focused.
 - Test what happens when one remote app is stopped.
 - Use clear component names and folder structure.
-- Read the Module Federation and Vite plugin documentation carefully. 
+- Read the Module Federation and Vite plugin documentation carefully.
 
 ---
 
