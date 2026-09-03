@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { store } from "./store/store";
 import CatalogApp from "catalog_mfe/App";
 import CartApp from "cart_mfe/App";
 
 import Navbar from "./components/Navbar";
+import Container from "./components/Container";
 import Footer from "./components/Footer";
 
-import "./global.css";
-import "./app.css";
+import "./App.css";
 
 function App() {
   return (
@@ -14,13 +15,13 @@ function App() {
       <div className="app">
         <Navbar />
 
-        <main className="app__content">
+        <Container>
           <Routes>
-            <Route path="/" element={<CatalogApp />} />
+            <Route path="/" element={<CatalogApp store={store} />} />
 
-            <Route path="/cart" element={<CartApp />} />
+            <Route path="/cart" element={<CartApp store={store} />} />
           </Routes>
-        </main>
+        </Container>
 
         <Footer />
       </div>

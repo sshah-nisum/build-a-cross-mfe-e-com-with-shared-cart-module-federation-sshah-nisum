@@ -1,5 +1,5 @@
 .catalog {
-  padding: 48px 68px;
+  padding: 48px 0px;
 }
 
 .catalog__header {
@@ -230,5 +230,125 @@
 
   .product-modal__body {
     padding: 24px;
+  }
+}
+
+.recent-product {
+  margin-bottom: 32px;
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.recent-product__label {
+  margin: 0 0 6px;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recent-product h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.recent-product p:last-child {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.button--secondary {
+  flex-shrink: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.button--secondary:hover {
+  background: var(--color-background);
+}
+
+@media (max-width: 600px) {
+  .recent-product {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .button--secondary {
+    width: 100%;
+  }
+}
+
+.catalog-toolbar {
+  margin-bottom: 28px;
+  padding: 14px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.catalog-toolbar__label {
+  margin-right: 6px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.catalog-toolbar strong {
+  font-size: 14px;
+}
+
+.currency-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.currency-selector select {
+  min-width: 90px;
+  padding: 8px 10px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  outline: none;
+}
+
+.currency-selector select:focus {
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 600px) {
+  .catalog-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .currency-selector {
+    width: 100%;
+    justify-content: space-between;
   }
 }

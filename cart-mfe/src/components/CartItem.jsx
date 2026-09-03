@@ -1,3 +1,5 @@
+import { getCurrency } from "../utils/cookieStorage";
+
 function CartItem({ item, onIncrease, onDecrease, onRemove }) {
   const subtotal = item.price * item.quantity;
 
@@ -19,7 +21,9 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
         <div>
           <h3>{item.name}</h3>
 
-          <p>${item.price.toFixed(2)} each</p>
+          <p>
+            {getCurrency()} {item.price.toFixed(2)} each
+          </p>
 
           <button
             className="cart-item__remove"
@@ -39,7 +43,9 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
           <button onClick={() => onIncrease(item.id)}>+</button>
         </div>
 
-        <strong>${subtotal.toFixed(2)}</strong>
+        <strong>
+          {getCurrency()} {subtotal.toFixed(2)}
+        </strong>
       </div>
     </article>
   );

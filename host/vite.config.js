@@ -10,24 +10,25 @@ export default defineConfig(({ mode }) => {
       react(),
 
       federation({
-        name: "shell",
+        name: "host_mfe",
+        filename: "remoteEntry.js",
 
         remotes: {
           catalog_mfe:
-            process.env.VITE_CATALOG_REMOTE ||
+            env.VITE_CATALOG_REMOTE ||
             "http://localhost:5001/assets/remoteEntry.js",
           cart_mfe:
-            process.env.VITE_CART_REMOTE ||
+            env.VITE_CART_REMOTE ||
             "http://localhost:5002/assets/remoteEntry.js",
         },
 
-        shared: [
-          "react",
-          "react-dom",
-          "react-router-dom",
-          "react-redux",
-          "@reduxjs/toolkit",
-        ],
+        shared: {
+          react: { singleton: true },
+          "react-dom": { singleton: true },
+          "react-redux": { singleton: true },
+          "@reduxjs/toolkit": { singleton: true },
+          "react-router-dom": { singleton: true },
+        },
       }),
     ],
 
@@ -37,6 +38,8 @@ export default defineConfig(({ mode }) => {
 
     build: {
       target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
     },
   };
 });

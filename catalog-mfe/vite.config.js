@@ -10,17 +10,21 @@ export default defineConfig({
       name: "catalog_mfe",
       filename: "remoteEntry.js",
 
+      remotes: {
+        host_mfe: "http://localhost:5000/assets/remoteEntry.js",
+      },
+
       exposes: {
         "./App": "./src/App.jsx",
       },
 
-      shared: [
-        "react",
-        "react-dom",
-        "react-router-dom",
-        "react-redux",
-        "@reduxjs/toolkit",
-      ],
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+        "react-redux": { singleton: true },
+        "@reduxjs/toolkit": { singleton: true },
+        "react-router-dom": { singleton: true },
+      },
     }),
   ],
 
@@ -31,5 +35,6 @@ export default defineConfig({
   build: {
     target: "esnext",
     minify: false,
+    cssCodeSplit: false,
   },
 });

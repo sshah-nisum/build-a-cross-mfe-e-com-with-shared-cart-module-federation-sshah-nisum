@@ -1,4 +1,4 @@
-function ProductCard({ product, onAddToCart, onViewDetails }) {
+function ProductCard({ product, onAddToCart, onViewDetails, currency }) {
   return (
     <article className="product-card">
       <button
@@ -19,7 +19,7 @@ function ProductCard({ product, onAddToCart, onViewDetails }) {
 
         <div className="product-card__footer">
           <span className="product-card__price">
-            ${product.price.toFixed(2)}
+            {product.price.toFixed(2)} {currency}
           </span>
 
           <button
